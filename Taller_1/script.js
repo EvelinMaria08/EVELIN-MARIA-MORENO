@@ -11,7 +11,7 @@ function registrarHoras() {
 
   // Si ya completó las horas, no puede registrar más
   if (horasAcumuladas >= HORAS_REQUERIDAS) {
-    console.log("🚫 Ya has completado las " + HORAS_REQUERIDAS + " horas de servicio social. No puedes registrar más.\n");
+    console.log("Ya has completado las " + HORAS_REQUERIDAS + " horas de servicio social. No puedes registrar más.\n");
     return; // sale de la función
   }
 
