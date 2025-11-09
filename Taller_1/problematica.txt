@@ -3,9 +3,9 @@ PROBLEMATICA: Sistema de Registro y Consulta de Horas de Servicio Social Estudia
 
 
 DESCRIPCIÓN DEL PROBLEMA:
-En el colegio se requiere un sistema para llevar el control de las horas de servicio social estudiantil, 
-requisito obligatorio para los estudiantes de último grado. Cada alumno debe completar 80 hora de Servicio
-social para poder graduarse.
+En el colegio un estudiante desea llevar el control de las horas de servicio social que realiza, 
+requisito obligatorio para los de último grado, deben completar 80 hora de Servicio social para 
+poder graduarse.
 
 El sistema debe permitir:
 * Ingresar el nombre del estudiante.
@@ -47,7 +47,7 @@ El sistema finalizará el registro y mostrará un mensaje de despedida:
 “Gracias por usar el sistema de registro de horas. ¡Hasta pronto!”
 
 REGLAS EN EL CONTROL DE FLUJO:
-* Horas requeridas: Cada estudiante debe realizar un mínimo de 80 horas de servicio social.
+* Horas requeridas: El estudiante debe realizar un mínimo de 80 horas de servicio social.
 * Registro de horas: Utilizar un bucle for o while para permitir el registro de varias actividades.
 * Acumulación: Las horas registradas se sumarán al total acumulado.
 * Validación: Si el total alcanza o supera las 80 horas, el sistema mostrará el mensaje de finalización.
