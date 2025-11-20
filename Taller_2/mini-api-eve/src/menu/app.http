@@ -1,0 +1,28 @@
+# Crear plato
+POST http://localhost:3000/menu
+Content-Type: application/json
+
+{
+    "name": "Pizza",
+    "price": 35000
+}
+
+
+
+# Duplicar plato
+POST http://localhost:3000/menu/duplicate
+Content-Type: application/json
+
+{
+    "id": 1
+}
+
+
+
+# Listar menú (con categoría opcional)
+GET http://localhost:3000/menu?category=bebidas
+
+
+
+# Obtener plato por ID
+GET http://localhost:3000/menu/10

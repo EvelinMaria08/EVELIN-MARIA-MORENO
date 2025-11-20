@@ -1,0 +1,26 @@
+# POST — Crear empleado (1/4)
+POST http://localhost:3000/staff
+Content-Type: application/json
+
+{
+    "name": "Evelin Moreno",
+    "role": "mesera",
+    "salary": 1800000
+}
+
+
+
+# GET — Obtener empleados con filtros (2/4)
+
+GET http://localhost:3000/staff?role=chef&minSalary=1500000
+
+
+
+# PATCH — Actualizar rol del empleado (3/4)
+PATCH http://localhost:3000/staff/update-role
+Content-Type: application/json
+
+{
+    "id": 7,
+    "newRole": "cocinero"
+}

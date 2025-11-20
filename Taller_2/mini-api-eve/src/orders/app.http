@@ -1,0 +1,55 @@
+# POST — Crear pedido (1/6)
+
+POST http://localhost:3000/orders
+Content-Type: application/json
+
+{
+    "tableId": 5,
+    "dish": "Pizza",
+    "quantity": 2
+}
+
+
+
+# POST — Crear pedido prioritario (2/6)
+POST http://localhost:3000/orders/priority
+Content-Type: application/json
+
+{
+    "dish": "Pasta",
+    "tableId": 3
+}
+
+
+
+
+# GET — Listar pedidos (3/6)
+GET http://localhost:3000/orders?status=pendiente&date=2025-02-01
+
+
+
+
+#GET — Obtener pedido por ID (4/6)
+GET http://localhost:3000/orders/15
+
+
+
+# PATCH — Actualizar estado (5/6)
+PATCH http://localhost:3000/orders/update-status
+Content-Type: application/json
+
+{
+    "orderId": 10,
+    "status": "listo"
+}
+
+
+
+# PATCH — Cambiar mesa del pedido (6/6)
+PATCH http://localhost:3000/orders/update-table
+Content-Type: application/json
+
+{
+    "orderId": 10,
+    "newTable": 7
+}

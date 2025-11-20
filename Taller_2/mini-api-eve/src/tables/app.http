@@ -1,0 +1,29 @@
+# POST — Crear mesa (1/4)
+POST http://localhost:3000/tables
+Content-Type: application/json
+
+{
+    "number": 12,
+    "capacity": 4
+}
+
+
+
+# POST — Actualizar capacidad (2/4)
+POST http://localhost:3000/tables/capacity
+Content-Type: application/json
+
+{
+    "tableId": 12,
+    "capacity": 6
+}
+
+
+
+# GET — Listar mesas (3/4)
+GET http://localhost:3000/tables?available=true
+
+
+
+# GET — Obtener mesa por número (4/4)
+GET http://localhost:3000/tables/12
