@@ -1,0 +1,728 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>hospital-system documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+          <script>
+              // --- Iframe navigation tracking for Template Playground ---
+              function sendCurrentUrlToParent() {
+                  if (window.parent && window.parent !== window) {
+                      window.parent.postMessage({
+                          type: 'compodoc-iframe-navigate',
+                          url: window.location.pathname + window.location.hash
+                      }, '*');
+                  }
+              }
+              window.addEventListener('hashchange', sendCurrentUrlToParent, false);
+              window.addEventListener('popstate', sendCurrentUrlToParent, false);
+              window.addEventListener('DOMContentLoaded', sendCurrentUrlToParent, false);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">hospital-system documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content entity">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Entities</li>
+  <li class="breadcrumb-item" >Invoice</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" 
+                class="nav-link"
+                class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" 
+                class="nav-link"
+                
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/invoice/invoice.entity.ts</code>
+        </p>
+
+
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>Entidad que representa una factura en el sistema médico</p>
+<p>Esta entidad almacena la información de las facturas generadas por servicios médicos,
+incluyendo fecha de emisión, monto total, método de pago y estado del pago.
+Está asociada tanto a citas médicas como a pacientes.</p>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-typescript">const invoice = new Invoice();
+invoice.total = 150000.00;
+invoice.metodo_pago = &quot;Tarjeta de crédito&quot;;
+invoice.estado_pago = &quot;Pendiente&quot;;</code></pre></div>
+            </p>
+
+
+            <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier"></span>
+                                <a href="#estado_pago" >estado_pago</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                <a href="#fecha" >fecha</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                <a href="#id_factura" >id_factura</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                <a href="#metodo_pago" >metodo_pago</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                <a href="#propety_cita" >propety_cita</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                <a href="#propety_patient" >propety_patient</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                <a href="#total" >total</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+            <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="estado_pago"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                        <span ><b>estado_pago</b></span>
+                        <a href="#estado_pago"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <b>Decorators : </b>
+                        <br />
+                        <code>
+                            @Column({type: &#x27;varchar&#x27;, length: 50, default: &#x27;Pendiente&#x27;})<br />
+                        </code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="88" class="link-to-prism">src/invoice/invoice.entity.ts:88</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Estado del pago de la factura</p>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-html"></code></pre></div></div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="fecha"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                        <span ><b>fecha</b></span>
+                        <a href="#fecha"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank" >Date</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <b>Decorators : </b>
+                        <br />
+                        <code>
+                            @Column({type: &#x27;timestamp&#x27;, default: () &#x3D;&gt; CURRENT_TIMESTAMP})<br />
+                        </code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="46" class="link-to-prism">src/invoice/invoice.entity.ts:46</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Fecha y hora de emisión de la factura</p>
+<p>Se establece automáticamente con la fecha y hora actual al crear el registro.</p>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-html"></code></pre></div></div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="id_factura"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                        <span ><b>id_factura</b></span>
+                        <a href="#id_factura"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <b>Decorators : </b>
+                        <br />
+                        <code>
+                            @PrimaryGeneratedColumn()<br />
+                        </code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">src/invoice/invoice.entity.ts:33</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Clave primaria de la factura</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="metodo_pago"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                        <span ><b>metodo_pago</b></span>
+                        <a href="#metodo_pago"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <b>Decorators : </b>
+                        <br />
+                        <code>
+                            @Column({type: &#x27;varchar&#x27;, length: 50})<br />
+                        </code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="74" class="link-to-prism">src/invoice/invoice.entity.ts:74</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Método de pago utilizado</p>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-html"></code></pre></div></div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="propety_cita"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                            <span class="modifier"></span>
+                        <span ><b>propety_cita</b></span>
+                        <a href="#propety_cita"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../entitys/Appointment.html" target="_self" >Appointment</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <b>Decorators : </b>
+                        <br />
+                        <code>
+                            @ManyToOne(undefined, Cita &#x3D;&gt; Cita.invoice, {onDelete: &#x27;CASCADE&#x27;})<br />@JoinColumn({name: &#x27;id_cita&#x27;})<br />
+                        </code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="102" class="link-to-prism">src/invoice/invoice.entity.ts:102</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Cita asociada con esta factura</p>
+<p>Múltiples facturas pueden estar asociadas a una misma cita.
+La clave foránea id_cita se almacena en la tabla factura.
+Si la cita es eliminada, todas sus facturas también se eliminarán (CASCADE).
+See <a href="../entitys/Appointment.html">Appointment</a></p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="propety_patient"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                            <span class="modifier"></span>
+                        <span ><b>propety_patient</b></span>
+                        <a href="#propety_patient"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../entitys/Patient.html" target="_self" >Patient</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <b>Decorators : </b>
+                        <br />
+                        <code>
+                            @ManyToOne(undefined, paciente &#x3D;&gt; paciente.invoices, {onDelete: &#x27;CASCADE&#x27;})<br />@JoinColumn({name: &#x27;id_paciente&#x27;})<br />
+                        </code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="116" class="link-to-prism">src/invoice/invoice.entity.ts:116</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Paciente asociado con esta factura</p>
+<p>Múltiples facturas pueden pertenecer a un mismo paciente.
+La clave foránea id_paciente se almacena en la tabla factura.
+Si el paciente es eliminado, todas sus facturas también se eliminarán (CASCADE).
+See <a href="../entitys/Patient.html">Patient</a></p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="total"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                        <span ><b>total</b></span>
+                        <a href="#total"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <b>Decorators : </b>
+                        <br />
+                        <code>
+                            @Column({type: &#x27;decimal&#x27;, precision: 10, scale: 2})<br />
+                        </code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="61" class="link-to-prism">src/invoice/invoice.entity.ts:61</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Monto total de la factura</p>
+<p>Soporta hasta 10 dígitos en total con 2 decimales de precisión.</p>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-html"></code></pre></div></div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+</section>
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Appointment } from &quot;src/appointment/appointment.entity&quot;;
+import { Column, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn } from &quot;typeorm&quot;;
+import { Patient } from &quot;src/patient/patient.entity&quot;;
+
+/**
+ * Entidad que representa una factura en el sistema médico
+ * 
+ * @description
+ * Esta entidad almacena la información de las facturas generadas por servicios médicos,
+ * incluyendo fecha de emisión, monto total, método de pago y estado del pago.
+ * Está asociada tanto a citas médicas como a pacientes.
+ * 
+ * @export
+ * @class Invoice
+ * 
+ * @example
+ * &#x60;&#x60;&#x60;typescript
+ * const invoice &#x3D; new Invoice();
+ * invoice.total &#x3D; 150000.00;
+ * invoice.metodo_pago &#x3D; &quot;Tarjeta de crédito&quot;;
+ * invoice.estado_pago &#x3D; &quot;Pendiente&quot;;
+ * &#x60;&#x60;&#x60;
+ */
+@Entity(&#x27;factura&#x27;)
+export class Invoice {
+    /**
+     * Clave primaria de la factura
+     * 
+     * @type {number}
+     * @description Identificador único autogenerado para la factura
+     */
+    @PrimaryGeneratedColumn()
+    id_factura: number;
+
+    /**
+     * Fecha y hora de emisión de la factura
+     * 
+     * @type {Date}
+     * @description Fecha y hora exacta en que se generó la factura en formato timestamp.
+     * Se establece automáticamente con la fecha y hora actual al crear el registro.
+     * @default CURRENT_TIMESTAMP
+     * 
+     * @example new Date(&quot;2024-03-15T10:30:00&quot;)
+     */
+    @Column({type: &#x27;timestamp&#x27;, default: () &#x3D;&gt; &#x27;CURRENT_TIMESTAMP&#x27;})
+    fecha: Date;
+
+    /**
+     * Monto total de la factura
+     * 
+     * @type {number}
+     * @description Valor total a pagar por los servicios médicos prestados.
+     * Soporta hasta 10 dígitos en total con 2 decimales de precisión.
+     * @precision 10 dígitos máximos
+     * @scale 2 dígitos después del punto decimal
+     * @required
+     * 
+     * @example 150000.00, 75500.50, 1250000.99
+     */
+    @Column({type: &#x27;decimal&#x27;, precision: 10, scale: 2})
+    total: number;
+
+    /**
+     * Método de pago utilizado
+     * 
+     * @type {string}
+     * @description Forma de pago seleccionada por el paciente para cancelar la factura
+     * @maxLength 50
+     * @required
+     * 
+     * @example &quot;Efectivo&quot;, &quot;Tarjeta de crédito&quot;, &quot;Tarjeta de débito&quot;, &quot;Transferencia bancaria&quot;, &quot;PSE&quot;
+     */
+    @Column({type: &#x27;varchar&#x27;, length: 50})
+    metodo_pago: string;
+
+    /**
+     * Estado del pago de la factura
+     * 
+     * @type {string}
+     * @description Indica el estado actual del pago de la factura
+     * @maxLength 50
+     * @default &quot;Pendiente&quot;
+     * @required
+     * 
+     * @example &quot;Pendiente&quot;, &quot;Pagado&quot;, &quot;Fallido&quot;, &quot;Cancelado&quot;
+     */
+    @Column({type: &#x27;varchar&#x27;, length: 50, default: &#x27;Pendiente&#x27;})
+    estado_pago: string;
+
+    /**
+     * Cita asociada con esta factura
+     * 
+     * @type {Appointment}
+     * @description Relación muchos a uno con la entidad Appointment.
+     * Múltiples facturas pueden estar asociadas a una misma cita.
+     * La clave foránea id_cita se almacena en la tabla factura.
+     * Si la cita es eliminada, todas sus facturas también se eliminarán (CASCADE).
+     * @see {@link Appointment}
+     */
+    @ManyToOne(() &#x3D;&gt; Appointment, (Cita) &#x3D;&gt; Cita.invoice, {onDelete: &#x27;CASCADE&#x27;})
+    @JoinColumn({name: &#x27;id_cita&#x27;})
+    propety_cita: Appointment;
+
+    /**
+     * Paciente asociado con esta factura
+     * 
+     * @type {Patient}
+     * @description Relación muchos a uno con la entidad Patient.
+     * Múltiples facturas pueden pertenecer a un mismo paciente.
+     * La clave foránea id_paciente se almacena en la tabla factura.
+     * Si el paciente es eliminado, todas sus facturas también se eliminarán (CASCADE).
+     * @see {@link Patient}
+     */
+    @ManyToOne(() &#x3D;&gt; Patient, (paciente) &#x3D;&gt; paciente.invoices, {onDelete: &#x27;CASCADE&#x27;})
+    @JoinColumn({name: &#x27;id_paciente&#x27;})
+    propety_patient: Patient;
+}</code></pre>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'entity';
+            var COMPODOC_CURRENT_PAGE_URL = 'Invoice.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

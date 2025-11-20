@@ -1,0 +1,952 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>hospital-system documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+          <script>
+              // --- Iframe navigation tracking for Template Playground ---
+              function sendCurrentUrlToParent() {
+                  if (window.parent && window.parent !== window) {
+                      window.parent.postMessage({
+                          type: 'compodoc-iframe-navigate',
+                          url: window.location.pathname + window.location.hash
+                      }, '*');
+                  }
+              }
+              window.addEventListener('hashchange', sendCurrentUrlToParent, false);
+              window.addEventListener('popstate', sendCurrentUrlToParent, false);
+              window.addEventListener('DOMContentLoaded', sendCurrentUrlToParent, false);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">hospital-system documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content injectable">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Injectables</li>
+  <li class="breadcrumb-item" >DoctorService</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" 
+                class="nav-link"
+                class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" 
+                class="nav-link"
+                
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/doctor/doctor.service.ts</code>
+        </p>
+
+
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>Servicio para gestionar las operaciones de doctores</p>
+<p>Este servicio proporciona métodos para realizar operaciones CRUD
+sobre la entidad Doctor, incluyendo la creación, lectura,
+actualización y eliminación de doctores, así como el manejo
+de sus relaciones con Person y Specialty.</p>
+
+            </p>
+
+
+
+            <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#create" >create</a>
+                            </li>
+                            <li>
+                                <a href="#findAll" >findAll</a>
+                            </li>
+                            <li>
+                                <a href="#findOne" >findOne</a>
+                            </li>
+                            <li>
+                                <a href="#remove" >remove</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#update" >update</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+            <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(doctorRepository: <a href="../entitys/Doctor.html" target="_self">Repository&lt;Doctor&gt;</a>, personRepository: <a href="../entitys/Person.html" target="_self">Repository&lt;Person&gt;</a>, specialtyRepository: <a href="../entitys/Specialty.html" target="_self">Repository&lt;Specialty&gt;</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">src/doctor/doctor.service.ts:23</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Constructor del servicio de doctores</p>
+</div>
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                                    <td>Description</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>doctorRepository</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../entitys/Doctor.html" target="_self" >Repository&lt;Doctor&gt;</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <ul>
+<li>Repositorio de TypeORM para la entidad Doctor</li>
+</ul>
+
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td>personRepository</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../entitys/Person.html" target="_self" >Repository&lt;Person&gt;</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <ul>
+<li>Repositorio de TypeORM para la entidad Person</li>
+</ul>
+
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td>specialtyRepository</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../entitys/Specialty.html" target="_self" >Repository&lt;Specialty&gt;</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <ul>
+<li>Repositorio de TypeORM para la entidad Specialty</li>
+</ul>
+
+                                                        </td>
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+            <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="create"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>create</b></span>
+                        <a href="#create"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>create(dto: <a href="../classes/CreateDoctorDto.html" target="_self">CreateDoctorDto</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="58"
+                                    class="link-to-prism">src/doctor/doctor.service.ts:58</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Crea un nuevo doctor en la base de datos</p>
+<p>Crea un doctor asociándolo con una persona y una especialidad existentes.
+Verifica que tanto la persona como la especialidad existan antes de crear el doctor.</p>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-typescript">const newDoctor = await doctorService.create({
+  personaId: 1,
+  specialtyId: 2,
+  licenseNumber: &quot;MP-123456&quot;
+});</code></pre></div></div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>dto</td>
+                                            <td>
+                                                            <code><a href="../classes/CreateDoctorDto.html" target="_self" >CreateDoctorDto</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>Datos del doctor a crear</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>unknown</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>El doctor creado con sus relaciones</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="findAll"></a>
+                    <span class="name">
+                        <span ><b>findAll</b></span>
+                        <a href="#findAll"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>findAll()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="85"
+                                    class="link-to-prism">src/doctor/doctor.service.ts:85</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Obtiene todos los doctores registrados con sus datos personales</p>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-typescript">const doctors = await doctorService.findAll();
+// Retorna doctores con datos de person poblados</code></pre></div></div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>Array con todos los doctores incluyendo la relación con Person</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="findOne"></a>
+                    <span class="name">
+                        <span ><b>findOne</b></span>
+                        <a href="#findOne"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>findOne(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="100"
+                                    class="link-to-prism">src/doctor/doctor.service.ts:100</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Busca un doctor por su ID con sus datos personales</p>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-typescript">const doctor = await doctorService.findOne(1);</code></pre></div></div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>id</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>ID del doctor a buscar</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>El doctor encontrado con sus datos personales o null si no existe</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="remove"></a>
+                    <span class="name">
+                        <span ><b>remove</b></span>
+                        <a href="#remove"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>remove(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="175"
+                                    class="link-to-prism">src/doctor/doctor.service.ts:175</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Elimina un doctor por su ID</p>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-typescript">await doctorService.remove(1);</code></pre></div></div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>id</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>ID del doctor a eliminar</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>Resultado de la operación de eliminación</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="update"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>update</b></span>
+                        <a href="#update"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>update(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, dto: <a href="../classes/UpdateDoctorDto.html" target="_self">UpdateDoctorDto</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="127"
+                                    class="link-to-prism">src/doctor/doctor.service.ts:127</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Actualiza un doctor existente</p>
+<p>Actualiza los datos de un doctor incluyendo sus relaciones.
+Verifica la existencia del doctor y de las entidades relacionadas antes de actualizar.
+Permite actualizar la persona asociada, la especialidad y el número de licencia.</p>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-typescript">const updated = await doctorService.update(1, {
+  specialtyId: 3,
+  licenseNumber: &quot;MP-789012&quot;
+});</code></pre></div></div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>id</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>ID del doctor a actualizar</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>dto</td>
+                                            <td>
+                                                            <code><a href="../classes/UpdateDoctorDto.html" target="_self" >UpdateDoctorDto</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>Datos actualizados del doctor</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>unknown</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>El doctor actualizado con sus relaciones</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@nestjs/common&#x27;;
+import { InjectRepository } from &#x27;@nestjs/typeorm&#x27;;
+import { Repository } from &#x27;typeorm&#x27;;
+import { Doctor } from &#x27;./doctor.entity&#x27;;
+import { Person } from &#x27;src/person/person.entity&#x27;;
+import { CreateDoctorDto } from &#x27;./dto/create-doctor.dto&#x27;;
+import { UpdateDoctorDto } from &#x27;./dto/update-doctor.dto&#x27;;
+import { Specialty } from &#x27;src/specialty/specialty.entity&#x27;;
+
+/**
+ * Servicio para gestionar las operaciones de doctores
+ * 
+ * @description
+ * Este servicio proporciona métodos para realizar operaciones CRUD
+ * sobre la entidad Doctor, incluyendo la creación, lectura,
+ * actualización y eliminación de doctores, así como el manejo
+ * de sus relaciones con Person y Specialty.
+ * 
+ * @export
+ * @class DoctorService
+ */
+@Injectable()
+export class DoctorService {
+    /**
+     * Constructor del servicio de doctores
+     * 
+     * @param {Repository&lt;Doctor&gt;} doctorRepository - Repositorio de TypeORM para la entidad Doctor
+     * @param {Repository&lt;Person&gt;} personRepository - Repositorio de TypeORM para la entidad Person
+     * @param {Repository&lt;Specialty&gt;} specialtyRepository - Repositorio de TypeORM para la entidad Specialty
+     */
+    constructor(
+        @InjectRepository(Doctor) private readonly doctorRepository: Repository&lt;Doctor&gt;,
+        @InjectRepository(Person) private readonly personRepository: Repository&lt;Person&gt;,
+        @InjectRepository(Specialty) private readonly specialtyRepository: Repository&lt;Specialty&gt;,
+    ) {}
+
+    /**
+     * Crea un nuevo doctor en la base de datos
+     * 
+     * @description
+     * Crea un doctor asociándolo con una persona y una especialidad existentes.
+     * Verifica que tanto la persona como la especialidad existan antes de crear el doctor.
+     * 
+     * @param {CreateDoctorDto} dto - Datos del doctor a crear
+     * @returns {Promise&lt;Doctor&gt;} El doctor creado con sus relaciones
+     * @throws {Error} Si la persona con el ID proporcionado no existe
+     * @throws {Error} Si la especialidad con el ID proporcionado no existe
+     * 
+     * @example
+     * &#x60;&#x60;&#x60;typescript
+     * const newDoctor &#x3D; await doctorService.create({
+     *   personaId: 1,
+     *   specialtyId: 2,
+     *   licenseNumber: &quot;MP-123456&quot;
+     * });
+     * &#x60;&#x60;&#x60;
+     */
+    async create (dto:CreateDoctorDto) {
+        // Busca la persona
+        const person &#x3D; await this.personRepository.findOneBy({id: dto.personaId});
+        if (!person) {
+            throw new Error(&#x27;Person not found&#x27;);
+        }
+        // Busca la especialidad
+        const specialty &#x3D; await this.specialtyRepository.findOneBy({id_especialidad: dto.specialtyId});
+        if (!specialty) {
+            throw new Error(&#x27;Specialty not found&#x27;);
+        }
+        // Crea el doctor
+        const doctor &#x3D; this.doctorRepository.create({person, specialty, licenseNumber: dto.licenseNumber});
+        return this.doctorRepository.save(doctor);
+    }
+
+    /**
+     * Obtiene todos los doctores registrados con sus datos personales
+     * 
+     * @returns {Promise&lt;Doctor[]&gt;} Array con todos los doctores incluyendo la relación con Person
+     * 
+     * @example
+     * &#x60;&#x60;&#x60;typescript
+     * const doctors &#x3D; await doctorService.findAll();
+     * // Retorna doctores con datos de person poblados
+     * &#x60;&#x60;&#x60;
+     */
+    findAll() {
+        return this.doctorRepository.find({relations: [&#x27;person&#x27;]});
+    }
+
+    /**
+     * Busca un doctor por su ID con sus datos personales
+     * 
+     * @param {number} id - ID del doctor a buscar
+     * @returns {Promise&lt;Doctor | null&gt;} El doctor encontrado con sus datos personales o null si no existe
+     * 
+     * @example
+     * &#x60;&#x60;&#x60;typescript
+     * const doctor &#x3D; await doctorService.findOne(1);
+     * &#x60;&#x60;&#x60;
+     */
+    findOne(id: number) {
+        return this.doctorRepository.findOne({where: {id}, relations: [&#x27;person&#x27;]});
+    }
+
+    /**
+     * Actualiza un doctor existente
+     * 
+     * @description
+     * Actualiza los datos de un doctor incluyendo sus relaciones.
+     * Verifica la existencia del doctor y de las entidades relacionadas antes de actualizar.
+     * Permite actualizar la persona asociada, la especialidad y el número de licencia.
+     * 
+     * @param {number} id - ID del doctor a actualizar
+     * @param {UpdateDoctorDto} dto - Datos actualizados del doctor
+     * @returns {Promise&lt;Doctor&gt;} El doctor actualizado con sus relaciones
+     * @throws {Error} Si el doctor no existe
+     * @throws {Error} Si la nueva persona especificada no existe
+     * @throws {Error} Si la nueva especialidad especificada no existe
+     * 
+     * @example
+     * &#x60;&#x60;&#x60;typescript
+     * const updated &#x3D; await doctorService.update(1, {
+     *   specialtyId: 3,
+     *   licenseNumber: &quot;MP-789012&quot;
+     * });
+     * &#x60;&#x60;&#x60;
+     */
+    async update(id: number, dto: UpdateDoctorDto) {
+        // Verificación de existencia del doctor
+        const doctor &#x3D; await this.doctorRepository.findOne({
+            where: { id },
+            relations: [&#x27;person&#x27;, &#x27;specialty&#x27;],
+        });
+
+        // Si el doctor no existe
+        if (!doctor) {
+            throw new Error(&#x27;Doctor not found&#x27;);
+        }
+
+        // Si se envía nuevo personaId, actualiza la relación
+        if (dto.personaId) {
+            const person &#x3D; await this.personRepository.findOneBy({ id: dto.personaId });
+            if (!person) throw new Error(&#x27;Person not found&#x27;);
+            doctor.person &#x3D; person;
+        }
+
+        // Si se envía nuevo specialtyId, actualiza la relación
+        if (dto.specialtyId) {
+            const specialty &#x3D; await this.specialtyRepository.findOneBy({
+            id_especialidad: dto.specialtyId,
+            });
+            if (!specialty) throw new Error(&#x27;Specialty not found&#x27;);
+            doctor.specialty &#x3D; specialty;
+        }
+
+        // Actualiza campos simples
+        if (dto.licenseNumber) {
+            doctor.licenseNumber &#x3D; dto.licenseNumber;
+        }
+
+        // Guarda los cambios
+        return this.doctorRepository.save(doctor);
+    }
+
+    /**
+     * Elimina un doctor por su ID
+     * 
+     * @param {number} id - ID del doctor a eliminar
+     * @returns {Promise&lt;DeleteResult&gt;} Resultado de la operación de eliminación
+     * 
+     * @example
+     * &#x60;&#x60;&#x60;typescript
+     * await doctorService.remove(1);
+     * &#x60;&#x60;&#x60;
+     */
+    remove(id: number) {
+        return this.doctorRepository.delete(id);    
+    }    
+
+}</code></pre>
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'injectable';
+            var COMPODOC_CURRENT_PAGE_URL = 'DoctorService.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>
