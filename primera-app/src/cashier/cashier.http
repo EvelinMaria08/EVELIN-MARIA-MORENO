@@ -2,4 +2,7 @@ POST http://localhost:3000/cashier
 
 PATCH http://localhost:3000/cashier/update-cash-registrer
 
-GET http://localhost:3000/cashier/Evelin
+GET http://localhost:3000/cashier/credit/Evelin?type=capuchino&size=12&milk=delactosed&sugarPortion=0.8
+
+# GET http://localhost:3000/cashier/credit/Evelin -> Buscar un recurso usando parámetros de ruta y de consulta
+#?type=capuchino&size=12&milk=delactosed&sugarPortion=0.8 -> Características que puede tener ese recurso

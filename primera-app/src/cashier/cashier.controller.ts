@@ -4,6 +4,7 @@ import {
   Param,
   Patch,
   Post,
+  Query,
 } from '@nestjs/common';
 
 @Controller('cashier')
@@ -18,8 +19,26 @@ export class CashierController {
     return 'Se realizo un movimiento de efectivo.';
   }
 
-  @Get(':name')
-  getCoffee(@Param('name') name: string) {
-    return 'Se retorna el café para ' + name;
+  // @Get(':name')
+  // getCoffee(@Query() queries){
+  //   return queries;
+  // }
+
+  // @Get(':name')
+  // getCoffee(@Param() params){
+  //   return params;
+  // }
+
+  // @Get(':paymenMethod/:name/')
+  // getCoffee(@Param() params){
+  //   return params;
+  // }
+
+  @Get(':paymenMethod/:name/')
+  getCoffee(@Param() params, @Query() query){
+    return {
+      normalitos: params,
+      queryParams: query,
+    };
   }
 }
