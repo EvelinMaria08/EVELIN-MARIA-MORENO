@@ -1,8 +1,31 @@
 POST http://localhost:3000/cashier
+content-type: application/json 
+# Te voy a pasar un objeto tipo JSON
+{
+    "id": "1asd2c4d5c7jk6d",
+    "totalPrice": 6000,
+    "date": "2020-01-01",
+    "paymentMethod": "cash",
+    "items": [
+        {
+            "id": 1,
+            "name": "Capuchino",
+            "price": 6000
+        }
+    ]
+}
+
 
 PATCH http://localhost:3000/cashier/update-cash-registrer
+content-type: application/json
+{
+    "id": "1asd2c4d5c7jk6d",
+    "paymentMethod": "credit card"
+}
 
-GET http://localhost:3000/cashier/credit/Evelin?type=capuchino&size=12&milk=delactosed&sugarPortion=0.8
+
 
 # GET http://localhost:3000/cashier/credit/Evelin -> Buscar un recurso usando parámetros de ruta y de consulta
 #?type=capuchino&size=12&milk=delactosed&sugarPortion=0.8 -> Características que puede tener ese recurso
+GET http://localhost:3000/cashier/credit/Evelin?type=capuchino&size=10&milk=delactosed&sugarPortion=0.8&date=2025-11-20&price=15000&isPromo=true&promoCode=1234561
+
